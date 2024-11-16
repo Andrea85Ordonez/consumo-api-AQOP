@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <h2>User List</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of paginatedUsers">
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.role }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- Controles de paginación -->
+    <div class="pagination-controls">
+        <button (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
+        <span>Página {{ currentPage }} de {{ totalPages }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+    </div>
+</div>
